@@ -1,0 +1,33 @@
+{
+    "name": "Banana Extension",
+    "description": "Base Level Extension",
+    "version": "1.0",
+    "manifest_version": 3,
+    "action": {
+    "default_popup": "index.html"
+    },
+    "content_scripts": [{
+       "matches": ["*://*/*"],
+        "js" : ["alert.js"]
+    }],
+    "background": {
+    "service_worker": "background.js",
+    "type": "module"
+    },
+    "permissions": [
+        "tabs",
+        "bookmarks",
+        "unlimitedStorage"
+    ],
+    "optional_permissions": [
+        "unlimitedStorage"
+    ],
+    "host_permissions": [
+        "https://www.blogger.com/",
+        "https://*.google.com/"
+    ],
+    "optional_host_permissions": [
+        "https://*/*",
+        "http://*/*"
+    ]
+}
